@@ -18,6 +18,8 @@ interface UserQueryCriteriaExpanderPluginInterface
     /**
      * Specification:
      * - Expands the user's table query criteria using `UserCriteriaTransfer`.
+     * - The keys of `QueryCriteria.conditions` are written to SQL as is, so they MUST NOT contain caller input.
+     * - Passes every value as a `?` placeholder in the key and binds it with the array value.
      *
      * @api
      *
